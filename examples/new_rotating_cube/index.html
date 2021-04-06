@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>line using threejs</title>
+    <style>
+        body { margin: 0; }
+    </style>
+</head>
+<body>
+<div id="control-form">
+
+    <label for="fov">fov </label>
+    <input type="range" id="fov" min="0" max="180">
+
+    <label for="cam-near">cam-near </label>
+    <input type="range" id="cam-near" min="0.1" max="10">
+
+    <label for="cam-far">cam-far </label>
+    <input type="range" id="cam-far" min="10" max="100">
+
+    <label for="cam-z">cam-z </label>
+    <input type="range" id="cam-z" min="1" max="100">
+
+    <label for="box-x">box-x </label>
+    <input type="range" id="box-x" min="0" max="10">
+
+    <label for="box-y">box-y </label>
+    <input type="range" id="box-y" min="0" max="10">
+
+    <label for="box-z">box-z </label>
+    <input type="range" id="box-z" min="0" max="10">
+
+    <label for="light-x">light-x </label>
+    <input type="range" id="light-x" min="-10" max="10">
+
+    <label for="light-y">light-y </label>
+    <input type="range" id="light-y" min="-10" max="10">
+
+    <label for="light-z">light-z </label>
+    <input type="range" id="light-z" min="-10" max="10">
+
+</div>
+<script type="module" src="./main.js"></script>
+<canvas id="c"></canvas>
+
+</body>
+</html>

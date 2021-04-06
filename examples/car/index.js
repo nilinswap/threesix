@@ -28,7 +28,7 @@ var camera = new THREE.OrthographicCamera(
     1000 // far plane
 );
 camera.position.set(100, 100, 100);
-camera.lookAt(0, 10, 0);
+camera.lookAt(0, 0, 0);
 
 camdist.onchange = function(){
     var cameraVal = camdist.value
@@ -60,7 +60,8 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 document.body.appendChild(renderer.domElement);
-
+var axesHelper = new THREE.AxesHelper( 55 );
+scene.add( axesHelper );
 
 function createWheels() {
     const geometry = new THREE.BoxBufferGeometry(12, 12, 33);
