@@ -41,9 +41,18 @@ function main(){
 
     const sunMaterial = new THREE.MeshPhongMaterial({emissive: 0xFFFF00});
     const sunMesh = new THREE.Mesh(sphereGeometry, sunMaterial);
+
+
+
+
+    const earthMaterial = new THREE.MeshPhongMaterial({color: 0x2233FF, emissive: 0x112244});
+    const earthMesh = new THREE.Mesh(sphereGeometry, earthMaterial);
+    earthMesh.position.x = 5;
+    sunMesh.add(earthMesh);
     sunMesh.scale.set(5, 5, 5);
     scene.add(sunMesh);
     objects.push(sunMesh);
+    objects.push(earthMesh);
 
     // function resizeRendererToDisplaySize(renderer) {
     //     const canvas = renderer.domElement;
