@@ -6,6 +6,8 @@
 
 [css-box](https://www.w3schools.com/css/css_boxmodel.asp)
 
+[camera.up.set](https://stackoverflow.com/questions/34936821/what-effect-does-camera-up-have-in-three-js/66992727#66992727)
+
 ## setup
 run server
 
