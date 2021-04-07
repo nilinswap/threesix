@@ -1,64 +1,50 @@
-import * as THREE from './libs/three';
+import * as THREE from './node_modules/three/src/Three.js';
 
-function main() {
-    const canvas = document.querySelector('#c');
-    const renderer = new THREE.WebGLRenderer({canvas});
 
-    const fov = 75;
-    const aspect = 2;  // the canvas default
-    const near = 0.1;
-    const far = 5;
-    const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    camera.position.z = 2;
+    // global variables
+    var renderer;
+    var scene;
+    var camera;
+function init() {
 
-    const scene = new THREE.Scene();
+    // create a scene, that will hold all our elements such as objects, cameras and lights.
+    scene = new THREE.Scene();
 
-    {
-        const color = 0xFFFFFF;
-        const intensity = 1;
-        const light = new THREE.DirectionalLight(color, intensity);
-        light.position.set(-1, 2, 4);
-        scene.add(light);
-    }
+    // create a camera, which defines where we're looking at.
+    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-    const boxWidth = 1;
-    const boxHeight = 1;
-    const boxDepth = 1;
-    const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+    // create a render, sets the background color and the size
+    renderer = new THREE.WebGLRenderer();
+    renderer.setClearColor(0x000000, 1.0);
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
-    function makeInstance(geometry, color, x) {
-        const material = new THREE.MeshPhongMaterial({color});
+    // create a cube and add to scene
+    var cubeGeometry = new THREE.BoxGeometry(10 * Math.random(), 10 * Math.random(), 10 * Math.random());
+    var cubeMaterial = new THREE.MeshNormalMaterial();
+    var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+    scene.add(cube);
 
-        const cube = new THREE.Mesh(geometry, material);
-        scene.add(cube);
+    var axesHelper = new THREE.AxesHelper( 55 );
+    scene.add( axesHelper );
 
-        cube.position.x = x;
+    // position and point the camera to the center of the scene
+    camera.position.x = 15;
+    camera.position.y = 16;
+    camera.position.z = 13;
+    camera.lookAt(scene.position);
 
-        return cube;
-    }
+    // add the output of the renderer to the html element
+    document.body.appendChild(renderer.domElement);
 
-    const cubes = [
-        makeInstance(geometry, 0x44aa88,  0),
-        makeInstance(geometry, 0x8844aa, -2),
-        makeInstance(geometry, 0xaa8844,  2),
-    ];
-
-    function render(time) {
-        time *= 0.001;  // convert time to seconds
-
-        cubes.forEach((cube, ndx) => {
-            const speed = 1 + ndx * .1;
-            const rot = time * speed;
-            cube.rotation.x = rot;
-            cube.rotation.y = rot;
-        });
-
-        renderer.render(scene, camera);
-
-        requestAnimationFrame(render);
-    }
-    requestAnimationFrame(render);
-
+    // call the render function
+    render();
 }
 
-main();
+
+
+function render() {
+    renderer.render(scene, camera);
+}
+
+    // calls the init function when the window is done loading.
+    window.onload = init;

@@ -2,7 +2,9 @@
 
 ## resources
 
-https://threejsfundamentals.org/threejs/lessons/threejs-fundamentals.html
+[threejs doc](https://threejsfundamentals.org/threejs/lessons/threejs-fundamentals.html)
+
+[css-box](https://www.w3schools.com/css/css_boxmodel.asp)
 
 ## setup
 run server
