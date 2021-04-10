@@ -8,6 +8,8 @@
 
 [camera.up.set](https://stackoverflow.com/questions/34936821/what-effect-does-camera-up-have-in-three-js/66992727#66992727)
 
+[scene-graph](https://threejsfundamentals.org/threejs/lessons/threejs-scenegraph.html)
+
 ## setup
 run server
 
@@ -16,9 +18,10 @@ run server
 
 ## hooks?
 
-1. create a shelf. 
-2. export it to an obj
-3. import an obj
+1. finish scene-graph tutorial follow
+2. create a shelf. 
+3. export it to an obj
+4. import an obj
 
 
 ## points
